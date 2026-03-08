@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PyRevit — Supercharging Autodesk Revit with Python</title>
+
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="/node_modules/reveal.js/dist/reset.css" />
+  <link rel="stylesheet" href="/node_modules/reveal.js/dist/reveal.css" />
+  <link rel="stylesheet" href="/node_modules/reveal.js/dist/theme/black.css" />
+
+  <!-- Syntax highlight theme (monokai) -->
+  <link rel="stylesheet" href="/node_modules/reveal.js/plugin/highlight/monokai.css" />
+
+  <!-- Custom overrides -->
+  <link rel="stylesheet" href="/styles/custom.css" />
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<!-- SLIDES -->
+</div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+<!-- Reveal.js core -->
+<script src="/node_modules/reveal.js/dist/reveal.js"></script>
+<!-- Plugins -->
+<script src="/node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+<script src="/node_modules/reveal.js/plugin/notes/notes.js"></script>
+
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    transition: 'fade',
+    transitionSpeed: 'fast',
+    center: false,
+    controls: true,
+    progress: true,
+    width: 1280,
+    height: 720,
+    margin: 0.06,
+    minScale: 0.2,
+    maxScale: 2.0,
+    plugins: [RevealHighlight, RevealNotes]
+  });
+</script>
+</body>
+</html>

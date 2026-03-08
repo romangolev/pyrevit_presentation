@@ -1,0 +1,32 @@
+<section>
+  <h2>The Problem with Revit Add-ins</h2>
+  <p>Traditional Revit customisation requires a .NET add-in:</p>
+  <div class="cols" style="margin-top:1.2em;">
+    <div>
+      <div class="card">
+        <h4>Typical workflow</h4>
+        <ul>
+          <li>Write C# / VB.NET</li>
+          <li>Add Revit API references</li>
+          <li>Compile → <code>.dll</code></li>
+          <li>Copy to add-ins folder</li>
+          <li><strong>Restart Revit</strong></li>
+          <li>Test → find bug → repeat</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="callout callout-orange">
+        <strong>Typical cycle time:</strong> 3–10 min per iteration.<br/>
+        For a small script this is unsustainable.
+      </div>
+      <div class="callout" style="margin-top:0.6em;">
+        <strong>No REPL.</strong> You cannot run a one-liner against a live Revit document.
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    The round-trip time kills productivity for rapid prototyping and small utility scripts.
+    C# is also a barrier for BIM engineers who know Python but not .NET.
+  </aside>
+</section>

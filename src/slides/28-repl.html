@@ -1,0 +1,21 @@
+<section>
+  <h2>PyRevit Console — REPL</h2>
+  <p>Interactive Python shell with the live Revit document in scope:</p>
+  <pre><code class="language-python"># Open via: PyRevit tab → PyRevit Console
+# All pyrevit imports already available
+
+# Count all doors in the current model
+from pyrevit import DB, revit
+doors = DB.FilteredElementCollector(revit.doc) \
+          .OfCategory(DB.BuiltInCategory.OST_Doors) \
+          .WhereElementIsNotElementType() \
+          .GetElementCount()
+print(f"Doors: {doors}")
+# → Doors: 347</code></pre>
+  <div class="callout" style="margin-top:0.6em;">
+    Fast feedback loop. Prototype your logic here, paste into <code>script.py</code> when ready.
+  </div>
+  <aside class="notes">
+    The console is also available via keyboard shortcut. It's the fastest way to learn the Revit API — no compile, no deploy, immediate output.
+  </aside>
+</section>

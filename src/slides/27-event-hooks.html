@@ -1,0 +1,30 @@
+<section>
+  <h2>Event Hooks</h2>
+  <p>React to Revit events — no EventHandler boilerplate:</p>
+  <pre><code class="language-python"># hooks/doc-opened.py   ← file name = event name
+
+from pyrevit import script, forms, DB
+import hooks  # pyrevit hooks module
+
+logger = script.get_logger()
+
+# __eventargs__ is injected by PyRevit
+doc = __eventargs__.Document
+
+# Check for warnings on every open
+warnings = doc.GetWarnings()
+crit = [w for w in warnings if "overlapping" in w.GetDescriptionText().lower()]
+
+if crit:
+    logger.warning("{} critical warnings found".format(len(crit)))
+    forms.alert(
+        "{} overlapping element warnings detected.\nReview before proceeding.".format(len(crit)),
+        title="Model Health Check",
+        warn_icon=True
+    )</code></pre>
+  <p class="muted" style="margin-top:0.4em;">Available hooks: <code>doc-opened</code>, <code>doc-saved</code>, <code>doc-synced</code>, <code>doc-closing</code>, <code>view-activated</code>, and more.</p>
+  <aside class="notes">
+    Place the file in a hooks/ folder inside your extension. The file name must match the event slug exactly.
+    __eventargs__ is a magic variable injected at runtime by the PyRevit engine.
+  </aside>
+</section>

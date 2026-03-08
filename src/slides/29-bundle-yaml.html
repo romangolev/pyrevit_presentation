@@ -1,0 +1,25 @@
+<section>
+  <h2><code>bundle.yaml</code> — Button Metadata</h2>
+  <pre><code class="language-yaml">name: Rename Sheets
+tooltip: |
+  Bulk-rename sheets using find & replace.
+  Supports → syntax for paired find/replace.
+author: Jane Smith &lt;jane@example.com&gt;
+min_revit_ver: 2021
+max_revit_ver: 2025
+engine:
+  min: 3.8   # minimum CPython version
+help_url: https://github.com/yourorg/mytools/wiki/RenameSheets</code></pre>
+  <div class="cols" style="margin-top:0.4em;">
+    <div class="callout">
+      Version ranges allow one extension to safely support multiple Revit releases.
+    </div>
+    <div class="callout callout-green" style="margin-top:0;">
+      <code>help_url</code> adds a ? button to the ribbon that opens your docs.
+    </div>
+  </div>
+  <aside class="notes">
+    bundle.yaml is optional but recommended for anything you ship to others.
+    min/max_revit_ver prevents the button loading on unsupported versions.
+  </aside>
+</section>

@@ -1,0 +1,21 @@
+<section>
+  <h2>Extension Folder Structure</h2>
+  <pre><code class="language-text">MyTools.extension/
+├── MyTools.tab/                  ← Ribbon tab
+│   └── Sheets.panel/             ← Ribbon panel
+│       ├── RenameSheets.pushbutton/
+│       │   ├── script.py         ← Main script
+│       │   ├── icon.png          ← 32×32 button icon (optional)
+│       │   └── bundle.yaml       ← Metadata (optional)
+│       └── SheetIndex.pushbutton/
+│           └── script.py
+└── lib/                          ← Shared Python modules
+    └── myutils.py</code></pre>
+  <div class="callout" style="margin-top:0.6em;">
+    Folder names are the button labels by default. Rename the folder → rename the button. No config needed.
+  </div>
+  <aside class="notes">
+    The naming convention drives everything. Tab name = .tab suffix, panel name = .panel suffix, etc.
+    PyRevit scans these folders on startup (or reload) and builds the ribbon automatically.
+  </aside>
+</section>

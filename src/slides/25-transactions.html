@@ -1,0 +1,29 @@
+<section>
+  <h2>Transactions</h2>
+  <div class="cols" style="margin-top:0.4em;">
+    <div>
+      <p><strong>Standard transaction</strong></p>
+      <pre><code class="language-python">from pyrevit import revit, DB
+
+with revit.Transaction("Set Parameter"):
+    elem.LookupParameter("Comments") \
+        .Set("Reviewed")</code></pre>
+      <p class="muted" style="margin-top:0.4em;">Auto-commits on success; rolls back on any exception.</p>
+    </div>
+    <div>
+      <p><strong>Dry / preview run</strong></p>
+      <pre><code class="language-python">from pyrevit import revit
+
+with revit.DryTransaction("Preview"):
+    # Modify elements, read results,
+    # transaction is always rolled back
+    new_area = calc_area(elem)
+
+print("Would be:", new_area)</code></pre>
+      <p class="muted" style="margin-top:0.4em;">Useful for what-if calculations without touching the model.</p>
+    </div>
+  </div>
+  <aside class="notes">
+    DryTransaction is a PyRevit addition — not in the raw Revit API. Very handy for read-only analysis that needs to temporarily modify elements.
+  </aside>
+</section>

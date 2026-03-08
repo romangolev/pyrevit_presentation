@@ -1,0 +1,19 @@
+<section>
+  <h2>Architecture Overview</h2>
+  <div class="arch-stack">
+    <div class="arch-box" style="border-color:#58a6ff; color:#58a6ff;">Autodesk Revit (host process)</div>
+    <div class="arch-arrow">▼</div>
+    <div class="arch-box">Revit API (.NET)</div>
+    <div class="arch-arrow">▼</div>
+    <div class="arch-box" style="border-color:#3fb950; color:#3fb950;">PyRevit Engine (IronPython / CPython)</div>
+    <div class="arch-arrow">▼</div>
+    <div class="arch-box">pyrevitlib — DB, UI, forms, hooks, script</div>
+    <div class="arch-arrow">▼</div>
+    <div class="arch-box" style="border-color:#d29922; color:#d29922;">Your <code>script.py</code></div>
+  </div>
+  <aside class="notes">
+    PyRevit loads as a standard .NET add-in at startup.
+    After that it manages the Python runtime and watches extension folders for changes.
+    Reloading an extension doesn't require restarting Revit.
+  </aside>
+</section>

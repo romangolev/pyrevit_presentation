@@ -1,0 +1,33 @@
+<section>
+  <h2>Key Concepts</h2>
+  <table>
+    <thead>
+      <tr><th>Concept</th><th>What it is</th><th>Analogy</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>Extension</code></td>
+        <td>A folder that defines a ribbon tab with panels &amp; buttons</td>
+        <td>VS Code extension</td>
+      </tr>
+      <tr>
+        <td><code>Button</code> (pushbutton)</td>
+        <td>A <code>.pushbutton</code> folder containing <code>script.py</code></td>
+        <td>npm script</td>
+      </tr>
+      <tr>
+        <td><code>Hook</code></td>
+        <td>Python file that fires on a Revit event (open, save, sync…)</td>
+        <td>git hook</td>
+      </tr>
+      <tr>
+        <td><code>Library</code></td>
+        <td>A <code>.lib</code> extension that exposes shared Python modules</td>
+        <td>shared package</td>
+      </tr>
+    </tbody>
+  </table>
+  <aside class="notes">
+    Everything is just folders and Python files. No build step, no manifest XML (unless you want bundle.yaml metadata).
+  </aside>
+</section>

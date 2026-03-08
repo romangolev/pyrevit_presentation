@@ -1,0 +1,24 @@
+<section>
+  <h2>Option B — CLI Install</h2>
+  <pre><code class="language-powershell"># 1. Install PyRevit CLI (PowerShell, no admin required)
+Invoke-WebRequest `
+  -Uri "https://github.com/pyrevitlabs/pyRevit/releases/latest/download/pyrevit-cli.exe" `
+  -OutFile "$env:LOCALAPPDATA\pyRevit\pyrevit.exe"
+
+# Add to PATH (or use full path)
+$env:PATH += ";$env:LOCALAPPDATA\pyRevit"
+
+# 2. Clone the default PyRevit release
+pyrevit clone default
+
+# 3. Attach to Revit 2024
+pyrevit attach default 2024
+
+# 4. Verify
+pyrevit clones</code></pre>
+  <p class="muted" style="margin-top:0.6em;">CLI gives full control — ideal for CI/CD, shared workstations, automated deployments.</p>
+  <aside class="notes">
+    "Clone" in PyRevit terminology means a local copy of the PyRevit source / release.
+    You can have multiple clones (e.g. stable + dev) and attach different ones to different Revit versions.
+  </aside>
+</section>
