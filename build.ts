@@ -11,7 +11,11 @@ async function buildIndexHtml(): Promise<string> {
     .filter(f => f.endsWith(".html"))
     .sort();
   const parts = await Promise.all(files.map(f => Bun.file(join(slidesDir, f)).text()));
-  return template.replace("<!-- SLIDES -->", parts.join("\n\n"));
+  // Assemble slides and rewrite absolute paths to relative for GitHub Pages
+  let assembled = template.replace("<!-- SLIDES -->", parts.join("\n\n"));
+  assembled = assembled.replaceAll('href="/', 'href="./');
+  assembled = assembled.replaceAll('src="/', 'src="./');
+  return assembled;
 }
 
 // Clean and create output directory
