@@ -1,0 +1,27 @@
+<section>
+  <h2>Installation</h2>
+  <div class="cols">
+    <div>
+      <p><strong>Option A — GUI Installer</strong></p>
+      <ol>
+        <li>Go to <code>pyrevitlabs.io</code> → Downloads</li>
+        <li>Run <code>pyRevit_X.X.X_installer.exe</code></li>
+        <li>Launch Revit → PyRevit tab appears</li>
+      </ol>
+      <p class="muted" style="margin-top:0.4em; font-size:0.8em;">Recommended for individual users.</p>
+    </div>
+    <div>
+      <p><strong>Option B — CLI (Chocolatey)</strong></p>
+      <pre><code class="language-powershell">choco install pyrevit-cli
+pyrevit clone default
+pyrevit attach default 2024
+pyrevit clones</code></pre>
+      <p class="muted" style="margin-top:0.4em; font-size:0.8em;">Ideal for CI/CD &amp; team deployments.</p>
+    </div>
+  </div>
+  <aside class="notes">
+    GUI installer creates a clone in %APPDATA%\pyRevit-Master.
+    CLI gives full control — multiple clones, different Revit versions.
+    Also available as signed EXE/MSI from GitHub Releases.
+  </aside>
+</section>

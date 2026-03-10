@@ -12,10 +12,11 @@
 └── lib/                          ← Shared Python modules
     └── myutils.py</code></pre>
   <div class="callout" style="margin-top:0.6em;">
-    Folder names are the button labels by default. Rename the folder → rename the button. No config needed.
+    Folder names are the button labels. Register via <strong>PyRevit Settings → Custom Extension Directories</strong> or CLI: <code>pyrevit extend ui MyTools /path/to/MyTools.extension</code>
   </div>
   <aside class="notes">
     The naming convention drives everything. Tab name = .tab suffix, panel name = .panel suffix, etc.
     PyRevit scans these folders on startup (or reload) and builds the ribbon automatically.
+    Point PyRevit at the parent directory of MyTools.extension, not the extension folder itself.
   </aside>
 </section>

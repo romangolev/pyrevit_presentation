@@ -35,8 +35,10 @@
 
 .reveal .slides section.is-centered {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 /* ── Headings ── */
