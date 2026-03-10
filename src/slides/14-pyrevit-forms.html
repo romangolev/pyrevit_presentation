@@ -1,0 +1,50 @@
+<section>
+  <h2>pyRevit <code>forms</code> Module</h2>
+  <p>Rich UI dialogs without writing WPF / XAML:</p>
+  <div class="cols" style="margin-top:0.8em;">
+    <div>
+      <pre><code class="language-python">from pyrevit import forms
+
+# Simple alert
+forms.alert("Operation complete!")
+
+# Yes / No confirmation
+if forms.alert("Delete elements?",
+               yes=True, no=True):
+    # proceed with deletion
+    pass
+
+# Text input
+text = forms.ask_for_string(
+    prompt="Enter prefix:",
+    default="XX-"
+)</code></pre>
+    </div>
+    <div>
+      <pre><code class="language-python">from pyrevit import forms, revit, DB
+
+# Select from a list
+selected = forms.SelectFromList.show(
+    ["Option A", "Option B", "Option C"],
+    title="Choose option",
+    multiselect=True
+)
+
+# Select Revit elements
+doc = revit.doc
+sheets = DB.FilteredElementCollector(doc)\
+    .OfClass(DB.ViewSheet).ToElements()
+
+picked = forms.SelectFromList.show(
+    sorted(sheets, key=lambda s: s.SheetNumber),
+    title="Pick sheets",
+    multiselect=True,
+    name_attr="Name"
+)</code></pre>
+    </div>
+  </div>
+  <aside class="notes">
+    The forms module is one of pyRevit's biggest productivity wins.
+    A proper WPF dialog takes 100+ lines in C#; forms.SelectFromList is one line.
+  </aside>
+</section>
