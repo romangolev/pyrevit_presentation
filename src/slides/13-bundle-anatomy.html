@@ -1,0 +1,62 @@
+<section>
+  <h2>Bundle Anatomy</h2>
+  <p class="muted">Every button in the ribbon is a <strong>bundle</strong> — a folder with a specific suffix:</p>
+  <div class="cols" style="margin-top:1em;">
+    <div>
+      <table style="font-size:0.75em; border-collapse:collapse; width:100%;">
+        <thead>
+          <tr>
+            <th style="padding:0.4em 0.8em; text-align:left; border-bottom:2px solid rgba(255,255,255,0.2);">Suffix</th>
+            <th style="padding:0.4em 0.8em; text-align:left; border-bottom:2px solid rgba(255,255,255,0.2);">Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:0.4em 0.8em;"><code>.pushbutton</code></td>
+            <td style="padding:0.4em 0.8em;">Single command button</td>
+          </tr>
+          <tr>
+            <td style="padding:0.4em 0.8em;"><code>.pulldown</code></td>
+            <td style="padding:0.4em 0.8em;">Dropdown menu</td>
+          </tr>
+          <tr>
+            <td style="padding:0.4em 0.8em;"><code>.splitbutton</code></td>
+            <td style="padding:0.4em 0.8em;">Split button (default + dropdown)</td>
+          </tr>
+          <tr>
+            <td style="padding:0.4em 0.8em;"><code>.stack</code></td>
+            <td style="padding:0.4em 0.8em;">Stacked small buttons (2–3)</td>
+          </tr>
+          <tr>
+            <td style="padding:0.4em 0.8em;"><code>.panel</code></td>
+            <td style="padding:0.4em 0.8em;">Ribbon panel group</td>
+          </tr>
+          <tr>
+            <td style="padding:0.4em 0.8em;"><code>.tab</code></td>
+            <td style="padding:0.4em 0.8em;">Ribbon tab</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <pre><code class="language-yaml"># bundle.yaml
+title: Rename Sheets
+tooltip: >
+  Batch rename sheets by
+  find &amp; replace pattern
+author: Roman Golev
+highlight: new
+context: zero-doc
+engines:
+  - iron-python-27
+  - cpython-385</code></pre>
+      <p class="muted" style="margin-top:0.6em; font-size:0.7em;">
+        <code>bundle.yaml</code> controls tooltip, author, engine, and button behavior.
+      </p>
+    </div>
+  </div>
+  <aside class="notes">
+    Bundles are the building blocks of pyRevit extensions. The naming convention drives the UI —
+    no XML manifests or registration code needed. Just name the folder correctly and pyRevit handles the rest.
+  </aside>
+</section>
