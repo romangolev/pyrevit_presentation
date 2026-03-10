@@ -11,19 +11,23 @@ with revit.Transaction("Set Parameter"):
       <p class="muted" style="margin-top:0.4em;">Auto-commits on success; rolls back on any exception.</p>
     </div>
     <div>
-      <p><strong>Dry / preview run</strong></p>
+      <p><strong>Transaction Group</strong></p>
       <pre><code class="language-python">from pyrevit import revit
 
-with revit.DryTransaction("Preview"):
-    # Modify elements, read results,
-    # transaction is always rolled back
-    new_area = calc_area(elem)
+with revit.TransactionGroup("Batch Ops"):
+    with revit.Transaction("Step 1"):
+        wall.get_Parameter(
+            DB.BuiltInParameter.ALL_MODEL_MARK
+        ).Set("A")
 
-print("Would be:", new_area)</code></pre>
-      <p class="muted" style="margin-top:0.4em;">Useful for what-if calculations without touching the model.</p>
+    with revit.Transaction("Step 2"):
+        wall.get_Parameter(
+            DB.BuiltInParameter.ALL_MODEL_INSTANCE_COMMENTS
+        ).Set("Updated")</code></pre>
+      <p class="muted" style="margin-top:0.4em;">Groups multiple transactions into one undo operation in Revit.</p>
     </div>
   </div>
   <aside class="notes">
-    DryTransaction is a PyRevit addition — not in the raw Revit API. Very handy for read-only analysis that needs to temporarily modify elements.
+    TransactionGroup wraps multiple transactions into a single undo entry. If any inner transaction fails, the whole group rolls back.
   </aside>
 </section>

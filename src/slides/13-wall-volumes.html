@@ -1,0 +1,27 @@
+<section>
+  <h2>Script Example</h2>
+  <pre><code class="language-python">import clr
+clr.AddReference("RevitAPI")
+from Autodesk.Revit.DB import FilteredElementCollector, BuiltInCategory, BuiltInParameter
+
+doc = __revit__.ActiveUIDocument.Document
+
+walls = FilteredElementCollector(doc) \
+    .OfCategory(BuiltInCategory.OST_Walls) \
+    .WhereElementIsNotElementType() \
+    .ToElements()
+
+for wall in walls:
+    vol_param = wall.get_Parameter(BuiltInParameter.HOST_VOLUME_COMPUTED)
+    if vol_param:
+        vol_ft3 = vol_param.AsDouble()
+        vol_m3 = vol_ft3 * 0.0283168
+        print("{0}: {1:.3f} m3".format(
+            wall.get_Parameter(BuiltInParameter.ELEM_TYPE_PARAM).AsValueString(),
+            vol_m3
+        ))</code></pre>
+  <aside class="notes">
+    Classic IronPython 2.7 script using the raw Revit API. Uses FilteredElementCollector to get all wall instances,
+    reads HOST_VOLUME_COMPUTED parameter, and converts from cubic feet to cubic meters.
+  </aside>
+</section>
