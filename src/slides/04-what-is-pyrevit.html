@@ -1,5 +1,5 @@
 <section>
-  <h2>What is PyRevit?</h2>
+  <h2>Why pyRevit?</h2>
   <div class="cols">
     <div>
       <ul>
@@ -7,21 +7,21 @@
         <li>Scripts run <strong>inside</strong> the Revit process — no restart needed</li>
         <li>Supports IronPython 2.7 &amp; CPython 3.x (via <code>pyrevitlib</code>)</li>
         <li>Rich helper library on top of the raw Revit API</li>
-        <li>Created by <strong>Ehsan Iran-Nejad</strong> in 2014, now open-source</li>
+        <li>Private tooling distribution</li>
       </ul>
     </div>
     <div>
       <div class="card">
         <h4>Key stats</h4>
         <ul>
-          <li>⭐ 2 000 + GitHub stars</li>
+          <li>⭐ <span id="pyrevit-stars">…</span> GitHub stars</li>
           <li>200+ built-in tools out of the box</li>
           <li>GPL v3 licensed</li>
         </ul>
       </div>
       <div class="card" style="margin-top:0.6em;">
         <h4>Who uses it?</h4>
-        <p style="font-size:0.85em;">AEC firms (HOK, Zaha Hadid, Arup), BIM Managers, and a growing open-source community sharing extensions via GitHub.</p>
+        <p style="font-size:0.85em;">AEC firms, BIM Managers, and a growing open-source community sharing extensions via GitHub.</p>
       </div>
     </div>
   </div>
@@ -29,4 +29,19 @@
     IronPython runs on the CLR so it can call Revit API directly.
     CPython support was added later for libraries like pandas, numpy.
   </aside>
+  <script>
+    fetch('https://api.github.com/repos/pyrevitlabs/pyRevit')
+      .then(r => r.json())
+      .then(d => {
+        const el = document.getElementById('pyrevit-stars');
+        if (d.stargazers_count) {
+          el.textContent = d.stargazers_count.toLocaleString();
+        } else {
+          el.textContent = '2 000+';
+        }
+      })
+      .catch(() => {
+        document.getElementById('pyrevit-stars').textContent = '2 000+';
+      });
+  </script>
 </section>

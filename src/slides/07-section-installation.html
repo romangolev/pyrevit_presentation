@@ -4,4 +4,45 @@
     <h2>Installation &amp; Setup</h2>
     <p class="muted">Two paths: GUI installer or CLI.</p>
   </div>
+  <div class="cols" style="margin-top:1.5em; text-align:left;">
+    <div>
+      <h4>Executable</h4>
+      <ul style="font-size:0.75em; list-style:none; padding:0;">
+        <li style="margin-bottom:0.5em;">
+          <svg height="16" width="16" viewBox="0 0 24 24" fill="#e6edf3" style="vertical-align:middle; margin-right:0.3em;"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16c0 1.11.89 2 2 2h12c1.11 0 2-.89 2-2V8l-6-6H6z"/></svg><a href="https://github.com/pyrevitlabs/pyRevit/releases/download/v6.1.0.26047%2B2255/pyRevit_6.1.0.26047_signed.exe" target="_blank" class="accent">pyRevit_6.1.0_signed.exe</a>
+          <span class="muted"> — installer</span>
+        </li>
+        <li style="margin-bottom:0.5em;">
+          <svg height="16" width="16" viewBox="0 0 24 24" fill="#e6edf3" style="vertical-align:middle; margin-right:0.3em;"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16c0 1.11.89 2 2 2h12c1.11 0 2-.89 2-2V8l-6-6H6z"/></svg><a href="https://github.com/pyrevitlabs/pyRevit/releases/download/v6.1.0.26047%2B2255/pyRevit_6.1.0.26047_admin_signed.exe" target="_blank" class="accent">pyRevit_6.1.0_admin_signed.exe</a>
+          <span class="muted"> — admin installer</span>
+        </li>
+        <li style="margin-bottom:0.5em;">
+          <svg height="16" width="16" viewBox="0 0 24 24" fill="#e6edf3" style="vertical-align:middle; margin-right:0.3em;"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16c0 1.11.89 2 2 2h12c1.11 0 2-.89 2-2V8l-6-6H6z"/></svg><a href="https://github.com/pyrevitlabs/pyRevit/releases/download/v6.1.0.26047%2B2255/pyRevit_CLI_6.1.0.26047_signed.exe" target="_blank" class="accent">pyRevit_CLI_6.1.0_signed.exe</a>
+          <span class="muted"> — CLI executable</span>
+        </li>
+        <li style="margin-bottom:0.5em;">
+          <svg height="16" width="16" viewBox="0 0 24 24" fill="#e6edf3" style="vertical-align:middle; margin-right:0.3em;"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16c0 1.11.89 2 2 2h12c1.11 0 2-.89 2-2V8l-6-6H6z"/></svg><a href="https://github.com/pyrevitlabs/pyRevit/releases/download/v6.1.0.26047%2B2255/pyRevit_CLI_6.1.0.26047_admin_signed.msi" target="_blank" class="accent">pyRevit_CLI_6.1.0_admin.msi</a>
+          <span class="muted"> — CLI MSI</span>
+        </li>
+      </ul>
+      <p class="muted" style="font-size:0.65em;">Latest release: <code>v6.1.0</code></p>
+    </div>
+    <div>
+      <h4>CLI</h4>
+      <pre><code class="language-powershell"># Install via Chocolatey
+choco install pyrevit-cli
+
+# Clone &amp; attach to Revit
+pyrevit clone default
+pyrevit attach default 2024
+
+# Verify
+pyrevit clones</code></pre>
+      <p class="muted" style="margin-top:0.4em; font-size:0.65em;">Ideal for CI/CD &amp; team deployments.</p>
+    </div>
+  </div>
+  <aside class="notes">
+    Left column has direct download links to the latest signed release artifacts from GitHub.
+    Right column shows the Chocolatey CLI workflow for automated/team setups.
+  </aside>
 </section>
